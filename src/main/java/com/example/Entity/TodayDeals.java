@@ -7,7 +7,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-public class Food {
+public class TodayDeals {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,14 +17,6 @@ public class Food {
 	private String item;
 	@Column(length = 3000)
 	private String url;
-	
-	
-	public String getUrl() {
-		return url;
-	}
-	public void setUrl(String url) {
-		this.url = url;
-	}
 	public int getId() {
 		return id;
 	}
@@ -35,7 +27,6 @@ public class Food {
 		return foodName;
 	}
 	public void setFoodName(String foodName) {
-		foodName = foodName.toUpperCase();
 		this.foodName = foodName;
 	}
 	public String getPrice() {
@@ -48,9 +39,15 @@ public class Food {
 		return item;
 	}
 	public void setItem(String item) {
-		item = item.toUpperCase();
 		this.item = item;
 	}
+	public String getUrl() {
+		return url;
+	}
+	public void setUrl(String url) {
+		this.url = url;
+	}
+	
 	
 	
 }

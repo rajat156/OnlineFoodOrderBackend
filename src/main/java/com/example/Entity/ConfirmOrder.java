@@ -1,53 +1,82 @@
 package com.example.Entity;
 
+import java.util.Date;
+import java.util.List;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.OneToMany;
 
 @Entity
-public class Client {
+public class ConfirmOrder {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy =  GenerationType.IDENTITY)
 	private int id;
-	private String itemId;
+	
+	
 	private String customerId;
+	
+	@OneToMany
+	private List<Client> client;
+	
+	private Date data;
+	
+	private int bill;
+	
 	private boolean flag;
-	@OneToOne
-	private Food food;
+	
+	
+	
 	
 	public boolean isFlag() {
 		return flag;
 	}
+
 	public void setFlag(boolean flag) {
 		this.flag = flag;
 	}
-	public Food getFood() {
-		return food;
+
+	public int getBill() {
+		return bill;
 	}
-	public void setFood(Food food) {
-		this.food = food;
+
+	public void setBill(int bill) {
+		this.bill = bill;
 	}
+
+	public Date getData() {
+		return data;
+	}
+
+	public void setData(Date data) {
+		this.data = data;
+	}
+
 	public int getId() {
 		return id;
 	}
+
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getItemId() {
-		return itemId;
+
+	public List<Client> getClient() {
+		return client;
 	}
-	public void setItemId(String itemId) {
-		this.itemId = itemId;
+
+	public void setClient(List<Client> client) {
+		this.client = client;
 	}
+
 	public String getCustomerId() {
 		return customerId;
 	}
+
 	public void setCustomerId(String customerId) {
 		this.customerId = customerId;
 	}
-	
-	
+
 }
